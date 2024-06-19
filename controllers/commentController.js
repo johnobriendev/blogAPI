@@ -12,7 +12,7 @@ exports.createComment = asyncHandler(async (req, res) => {
 // Get all comments for a post
 exports.getComments = asyncHandler(async (req, res) => {
   const { postId } = req.params;
-  const comments = await Comment.find({ post: postId });
+  const comments = await Comment.find({ post: postId }).populate('author', 'username');
   res.json(comments);
 });
 
