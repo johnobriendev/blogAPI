@@ -15,6 +15,19 @@ exports.getPosts = asyncHandler(async (req, res) => {
   res.json(posts);
 });
 
+//Get one post
+exports.getPostById = async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.id).populate('author', 'username');
+    if (!post) {
+      return res.status(404).json({ message: 'Post not found' });
+    }
+    res.status(200).json(post);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
 // Update a post
 exports.updatePost = asyncHandler(async (req, res) => {
   const { id } = req.params;
