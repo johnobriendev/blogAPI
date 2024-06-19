@@ -1,6 +1,7 @@
 var createError = require('http-errors');
 var express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const passport = require('passport');
 const dotenv = require('dotenv');
 var path = require('path');
@@ -32,6 +33,7 @@ app.set('view engine', 'jade');
 
 app.use(logger('dev'));
 app.use(express.json());
+app.use(cors());
 app.use(passport.initialize()); 
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
