@@ -19,3 +19,9 @@ exports.loginUser = asyncHandler(async (req, res) => {
     res.status(401).json({ message: 'Invalid username or password' });
   }
 });
+
+
+exports.logoutUser = asyncHandler(async (req, res) => {
+  // Typically, no action needed on the server side for JWT logout
+  res.status(200).json({ message: 'Logout successful' });
+});
