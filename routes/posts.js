@@ -10,7 +10,7 @@ router.post('/', authenticate, postController.createPost);
 router.get('/', postController.getPosts);
 
 //Get individual post
-router.get('/:id', authenticate, postController.getPostById);
+router.get('/:id',  postController.getPostById);
 
 // Update a post (protected)
 router.put('/:id', authenticate, postController.updatePost);
