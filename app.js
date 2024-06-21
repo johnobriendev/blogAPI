@@ -7,6 +7,8 @@ const dotenv = require('dotenv');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const compression = require("compression");
+const helmet = require("helmet");
 
 var indexRouter = require('./routes/index');
 var userRouter = require('./routes/user');
@@ -27,9 +29,26 @@ db.on("error", console.error.bind(console, "mongo connection error"));
 require('./config/passport');
 
 
+const RateLimit = require("express-rate-limit");
+const limiter = RateLimit({
+  windowMs: 1 * 60 * 1000, // 1 minute
+  max: 100,
+});
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+
+//production dependencies
+app.use(compression());
+app.use(
+  helmet.contentSecurityPolicy({
+    directives: {
+      "script-src": ["'self'", "code.jquery.com", "cdn.jsdelivr.net"],
+    },
+  }),
+);
+app.use(limiter);
 
 app.use(logger('dev'));
 app.use(express.json());
