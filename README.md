@@ -35,13 +35,21 @@ npm start
 The API will be available at http://localhost:3000.
 ## API Endpoints
 POST /login: Authenticate a user and return a JWT.
+
 POST /register: Register a new user.
+
 GET /posts: Retrieve all blog posts.
+
 GET /posts/:id: Retrieve a specific blog post.
+
 POST /posts: Create a new blog post (protected).
+
 PUT /posts/:id: Update a blog post (protected).
+
 DELETE /posts/:id: Delete a blog post (protected).
+
 POST /posts/:id/comments: Add a comment to a blog post.
+
 DELETE /comments/:id: Delete a comment (protected).
 ## Contributing
 Contributions are welcome! Please open an issue or submit a pull request.
