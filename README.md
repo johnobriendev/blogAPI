@@ -19,13 +19,13 @@ This repository contains the backend API for the Blog project. It is built with 
    git clone https://github.com/your-username/blog-api.git
    ```
 2. Navigate to the project directory:
-```bash
-cd blog-api
-```
-Install the dependencies:
-```bash
-npm install
-```
+   ```bash
+   cd blog-api
+   ```
+3. Install the dependencies:
+   ```bash
+   npm install
+   ```
 ### Running the Application
 Start the MongoDB server.
 Start the development server:
